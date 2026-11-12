@@ -12,6 +12,7 @@
     --safety-orange:#ff8904;
     --pretty-purple:#c27aff;
     --nav-width:250px;
+    --prof-black:#0a0c12;
 }
 
 body{
@@ -42,7 +43,7 @@ body:not(.updateType){
 }
 
 .nav-button{
-    padding:8px;
+    padding:20px;
     border-radius:20px;
     margin-bottom:30px;
 }
@@ -51,6 +52,7 @@ body:not(.updateType){
     font-weight: 400;
     color:var(--slate);
     font-size: 18px;
+    margin:0px;
 }
 .main-cont{
     padding:30px;
