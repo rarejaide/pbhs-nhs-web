@@ -1,0 +1,33 @@
+.all-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:100vh;
+}
+
+.login-contain{
+    background:var(--slate2);
+    padding:30px;
+    border-radius:30px;
+    border:solid 2px color-mix(in srgb, var(--slate2) 90%, white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    display:flex;
+    flex-direction: column;
+}
+
+.cred{
+    margin-bottom:20px;
+    background:var(--prof-black);
+    border:solid 2px var(--dark-slate1);
+    padding:12px;
+    border-radius:10px;
+    box-shadow: inset 0px 0px 17px black;
+    width:max-content;
+}
