@@ -14,20 +14,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const form = document.getElementById("loginForm");
-const errorEl = document.getElementById("error");
+const form = document.getElementsByClassName("login")[0];
+//const errorEl = document.getElementById("error");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    errorEl.textContent = "";
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    //errorEl.textContent = "";
+    const email = document.getElementsByClassName("cred")[0].value;
+    const password = document.getElementsByClassName("cred")[1].value;
 
     try {
         await signInWithEmailAndPassword(auth, email, password);
         window.location.href = "dashboard/index.html";
     } catch (error) {
         console.error("Login failed:", error.code);
-        errorEl.textContent = "Invalid email or password.";
+        //errorEl.textContent = "Invalid email or password.";
     }
 });
