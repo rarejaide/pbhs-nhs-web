@@ -19,10 +19,10 @@
   const aside = document.createElement('aside');
   aside.className = 'nav';
   aside.innerHTML = `
-    <h1>
+    <h3 style="margin-top:0px;">
       <span class="important-heading" style="color:var(--gold);">PBHS NHS </span><br>
-      <span style="color:var(--slate);font-family:'Work Sans';font-weight:500;">ADMIN PORTAL</span>
-    </h1>
+      <span style="color:var(--slate);font-family:'Work Sans';font-weight:500; font-size:10px; letter-spacing:2px;">ADMIN PORTAL</span>
+    </h3>
     <div class="profile"></div>
   `;
 

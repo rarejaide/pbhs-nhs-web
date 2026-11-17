@@ -1,5 +1,5 @@
 :root{
-    --bg-col:#060a17;
+    --bg-col:#020618;
     --dark-slate1:#0f172b;
     --dark-slate2:#131926;
     
@@ -13,7 +13,7 @@
     --bad-red:#ff637e;
     --safety-orange:#ff8904;
     --pretty-purple:#c27aff;
-    --nav-width:250px;
+    --nav-width:200px;
     --prof-black:#0a0c12;
 }
 
@@ -40,26 +40,26 @@ body:not(.updateType){
     width: var(--nav-width);
     height:100vh;
     border-right: solid 2px var(--dark-slate2);
-    padding:15px;
+    padding:20px 12px;
     position:fixed;
 }
 
 .nav-button{
-    padding:20px;
-    border-radius:20px;
-    margin-bottom:30px;
+    padding:8px 12px;
+    border-radius:9px;
+    margin-bottom:2px;
 }
 .nav-button p {
     font-family: 'Work Sans';
-    font-weight: 400;
+    font-weight: 600;
     color:var(--slate);
-    font-size: 18px;
+    font-size: 14px;
     margin:0px;
 }
 .main-cont{
-    padding:30px;
+    padding:10px 20px;
     flex-grow: 1;
-    margin-left:310px;
+    margin-left:230px;
 }
 .all-cont{
     display:flex;
@@ -80,8 +80,8 @@ a.nav-button:hover p{
     color:var(--light-slate);
 }
 a.nav-button.active{
-    background: color-mix(in srgb, var(--gold) 15%, transparent);
+    background: var(--gold);
 }
 a.nav-button.active p{
-    color:var(--gold);
+    color:var(--bg-col);
 }
