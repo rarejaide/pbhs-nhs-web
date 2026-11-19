@@ -1,0 +1,338 @@
+extend type Mutation {
+  """
+  ✨ Insert a single `Meeting` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  meeting_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Meeting_Data!
+  ): Meeting_KeyOutput! @fdc_generated(from: "Meeting", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `ServiceLog` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  serviceLog_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: ServiceLog_Data!
+  ): ServiceLog_KeyOutput! @fdc_generated(from: "ServiceLog", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert a single `Student` into the table and return its key. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  student_insert(
+    """
+    Data object to insert into the table.
+    """
+    data: Student_Data!
+  ): Student_KeyOutput! @fdc_generated(from: "Student", purpose: INSERT_SINGLE)
+  """
+  ✨ Insert `Meeting` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  meeting_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Meeting_Data!]!
+  ): [Meeting_KeyOutput!]! @fdc_generated(from: "Meeting", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `ServiceLog` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  serviceLog_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [ServiceLog_Data!]!
+  ): [ServiceLog_KeyOutput!]! @fdc_generated(from: "ServiceLog", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert `Student` objects into the table and return their keys. Columns not specified in `data` will receive defaults (e.g. `null`).
+  """
+  student_insertMany(
+    """
+    List of data objects to insert into the table.
+    """
+    data: [Student_Data!]!
+  ): [Student_KeyOutput!]! @fdc_generated(from: "Student", purpose: INSERT_MULTIPLE)
+  """
+  ✨ Insert or update a single `Meeting` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Meeting`.
+  """
+  meeting_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Meeting_Data!
+  ): Meeting_KeyOutput! @fdc_generated(from: "Meeting", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `ServiceLog` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ServiceLog`.
+  """
+  serviceLog_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: ServiceLog_Data!
+  ): ServiceLog_KeyOutput! @fdc_generated(from: "ServiceLog", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update a single `Student` into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Student`.
+  """
+  student_upsert(
+    """
+    Data object to insert or update if it already exists.
+    """
+    data: Student_Data!
+  ): Student_KeyOutput! @fdc_generated(from: "Student", purpose: UPSERT_SINGLE)
+  """
+  ✨ Insert or update `Meeting` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Meeting`.
+  """
+  meeting_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Meeting_Data!]!
+  ): [Meeting_KeyOutput!]! @fdc_generated(from: "Meeting", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `ServiceLog` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `ServiceLog`.
+  """
+  serviceLog_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [ServiceLog_Data!]!
+  ): [ServiceLog_KeyOutput!]! @fdc_generated(from: "ServiceLog", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Insert or update `Student` objects into the table, based on the primary key. Returns the key of the newly inserted or existing updated `Student`.
+  """
+  student_upsertMany(
+    """
+    List of data objects to insert or update if it already exists.
+    """
+    data: [Student_Data!]!
+  ): [Student_KeyOutput!]! @fdc_generated(from: "Student", purpose: UPSERT_MULTIPLE)
+  """
+  ✨ Update a single `Meeting` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Meeting` or `null` if not found.
+  """
+  meeting_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Meeting_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Meeting_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Meeting_Data!
+  ): Meeting_KeyOutput @fdc_generated(from: "Meeting", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `ServiceLog` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `ServiceLog` or `null` if not found.
+  """
+  serviceLog_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ServiceLog_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ServiceLog_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: ServiceLog_Data!
+  ): ServiceLog_KeyOutput @fdc_generated(from: "ServiceLog", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update a single `Student` based on `id`, `key` or `first`, setting columns specified in `data`. Returns the key of the updated `Student` or `null` if not found.
+  """
+  student_update(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Student_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Student_FirstRow
+
+    """
+    Data object containing fields to be updated.
+    """
+    data: Student_Data!
+  ): Student_KeyOutput @fdc_generated(from: "Student", purpose: UPDATE_SINGLE)
+  """
+  ✨ Update `Meeting` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  meeting_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Meeting_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Meeting_Data!
+  ): Int! @fdc_generated(from: "Meeting", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `ServiceLog` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  serviceLog_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: ServiceLog_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: ServiceLog_Data!
+  ): Int! @fdc_generated(from: "ServiceLog", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Update `Student` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  """
+  student_updateMany(
+    """
+    Filter condition to specify which rows to update.
+    """
+    where: Student_Filter
+
+    """
+    Set to true to update all rows.
+    """
+    all: Boolean = false
+
+    """
+    Data object containing fields to update.
+    """
+    data: Student_Data!
+  ): Int! @fdc_generated(from: "Student", purpose: UPDATE_MULTIPLE)
+  """
+  ✨ Delete a single `Meeting` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  meeting_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Meeting_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Meeting_FirstRow
+  ): Meeting_KeyOutput @fdc_generated(from: "Meeting", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `ServiceLog` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  serviceLog_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ServiceLog_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ServiceLog_FirstRow
+  ): ServiceLog_KeyOutput @fdc_generated(from: "ServiceLog", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete a single `Student` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  """
+  student_delete(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Student_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Student_FirstRow
+  ): Student_KeyOutput @fdc_generated(from: "Student", purpose: DELETE_SINGLE)
+  """
+  ✨ Delete `Meeting` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  meeting_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Meeting_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Meeting", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `ServiceLog` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  serviceLog_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: ServiceLog_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "ServiceLog", purpose: DELETE_MULTIPLE)
+  """
+  ✨ Delete `Student` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  """
+  student_deleteMany(
+    """
+    Filter condition to specify which rows to delete.
+    """
+    where: Student_Filter
+
+    """
+    Set to true to delete all rows.
+    """
+    all: Boolean = false
+  ): Int! @fdc_generated(from: "Student", purpose: DELETE_MULTIPLE)
+}

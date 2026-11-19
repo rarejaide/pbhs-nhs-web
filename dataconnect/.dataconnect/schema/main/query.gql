@@ -1,0 +1,161 @@
+extend type Query {
+  """
+  ✨ Look up a single `Meeting` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  meeting(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Meeting_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Meeting_FirstRow
+  ): Meeting @fdc_generated(from: "Meeting", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `ServiceLog` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  serviceLog(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: ServiceLog_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: ServiceLog_FirstRow
+  ): ServiceLog @fdc_generated(from: "ServiceLog", purpose: QUERY_SINGLE)
+  """
+  ✨ Look up a single `Student` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  """
+  student(
+    """
+    The unique ID of the object.
+    """
+    id: UUID
+
+    """
+    The key used to identify the object.
+    """
+    key: Student_Key
+
+    """
+    Fetch the first row based on the filters and ordering.
+    """
+    first: Student_FirstRow
+  ): Student @fdc_generated(from: "Student", purpose: QUERY_SINGLE)
+  """
+  ✨ List `Meeting` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  meetings(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Meeting_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Meeting_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Meeting_Having
+  ): [Meeting!]! @fdc_generated(from: "Meeting", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `ServiceLog` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  serviceLogs(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ServiceLog_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ServiceLog_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ServiceLog_Having
+  ): [ServiceLog!]! @fdc_generated(from: "ServiceLog", purpose: QUERY_MULTIPLE)
+  """
+  ✨ List `Student` objects in the table and return selected fields, optionally filtered by `where` conditions
+  """
+  students(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Student_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Student_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Student_Having
+  ): [Student!]! @fdc_generated(from: "Student", purpose: QUERY_MULTIPLE)
+}
