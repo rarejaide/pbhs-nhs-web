@@ -15,33 +15,43 @@
 </head>
 <body>
     <div class="all-cont">
-        <!-- <aside class="nav">
-            <h1> <span class="important-heading" style="color:var(--gold);">PBHS NHS </span><br> <span style="color:var(--slate);font-family: 'Work Sans'; font-weight:500;">ADMIN PORTAL</span> </h1>
-            <div class="profile"></div>
-            <div class="nav-button">
-                <p>Back to Home</p>
-            </div>
-            <div class="nav-button">
-                <p>Dashboard</p>
-            </div>
-            <div class="nav-button">
-                <p>Submit Hours</p>
-            </div>
-            <div class="nav-button">
-                <p>Approve Hours</p>
-            </div>
-            <div class="nav-button">
-                <p>Meeting Logs</p>
-            </div>
-            <div class="nav-button">
-                <p>Version History</p>
-            </div>
-        </aside> -->
         <main class="main-cont">
             <h1 class="important-heading">Meeting logs</h1>
             <p>stay in the know!!</p>
+            <p>you may only view ___ meetings</p>
+            <p id="status"></p>
+            <button> New log </button>
+            <table id="meeting-log-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>DATE</th>
+                        <th>MEETING NAME</th>
+                        <th>AGENDA</th>
+                        <th>NOTES</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>#1</td>
+                        <td>11/18/2026</td>
+                        <td>General meeting for november!</td>
+                        <td>something</td>
+                        <td>something</td>
+                        <td><button>VIEW</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+            
         </main>
+        <div id="meeting-log-shower" style="display:hidden;">
+            <div id="meet-cont">
+
+            </div>
+        </div>
     </div>
     <script src="../nav.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>

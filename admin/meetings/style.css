@@ -1,0 +1,28 @@
+#meeting-log-table{
+    width:100%;
+    border-radius: 20px;
+    border:none;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+#meeting-log-table thead{
+    background:color-mix(in srgb, var(--dark-slate1) 96%, white);
+    border-radius:20px;
+}
+#meeting-log-table tbody{
+    background:var(--dark-slate1);
+}
+#meeting-log-table tr th, #meeting-log-table tr td{
+    padding:12px 16px;
+    text-align: center;
+}
+
+td{
+    text-overflow: ellipsis;
+}
+
+#meeting-log-shower{
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+}
