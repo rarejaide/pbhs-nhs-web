@@ -17,6 +17,16 @@
     --prof-black:#0a0c12;
 }
 
+details > summary {
+    list-style: none;
+}
+
+/* Safari and older WebKit browsers */
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+
 body{
     margin:0px;
     background:var(--bg-col);

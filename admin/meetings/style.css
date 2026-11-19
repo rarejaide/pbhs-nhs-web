@@ -1,28 +1,58 @@
-#meeting-log-table{
+.meeting-header{
+    display:flex;
     width:100%;
-    border-radius: 20px;
-    border:none;
-    border-collapse: collapse;
-    overflow: hidden;
+    box-sizing: border-box;
+    gap:20px;
+    background-color: color-mix(in srgb, var(--light-slate) 7%, transparent);
+    border-radius: 10px;
+    border: solid 1px color-mix(in srgb, var(--light-slate) 15%, transparent);
+    transition-duration:300ms;
+    padding:10px 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-#meeting-log-table thead{
-    background:color-mix(in srgb, var(--dark-slate1) 96%, white);
-    border-radius:20px;
-}
-#meeting-log-table tbody{
-    background:var(--dark-slate1);
-}
-#meeting-log-table tr th, #meeting-log-table tr td{
-    padding:12px 16px;
-    text-align: center;
+.meeting-header:hover{
+    background-color: color-mix(in srgb, var(--light-slate) 10%, transparent);
 }
 
-td{
-    text-overflow: ellipsis;
+.meeting-num{
+    font-family: 'Work Sans';
+    font-weight: bold;
+    background-color: color-mix(in srgb, var(--light-slate) 25%, transparent);
+    color:var(--light-slate);
+    padding-left: 5px;
+    padding-right:5px;
+    padding-top:3px;
+    padding-bottom:3px;
+    border-radius: 2px;
+    margin: 0px;
 }
 
-#meeting-log-shower{
-    background: rgba(0,0,0,0.2);
-    backdrop-filter: blur(8px);
+.header-title{
+    margin:2px;
+    font-size: 20px;
+    color:var(--light-slate);
+}
+
+.header-date{
+    margin-left:auto;
+    margin-right:0.5rem;
+    color:color-mix(in srgb, var(--light-slate) 65%, var(--bg-col));
+    font-weight:600;
+    font-family: 'Work Sans';
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+.meeting-information{
+    margin-top:15px;
+    background-color: color-mix(in srgb, var(--light-slate) 5%, transparent);
+    border-radius: 10px;
+    border: solid 1px color-mix(in srgb, var(--light-slate) 15%, transparent);
+    padding:5px 20px;
+}
+
+.meeting-information p{
+    color:color-mix(in srgb, var(--light-slate) 65%, var(--bg-col));
 }

@@ -21,35 +21,25 @@
             <p>you may only view ___ meetings</p>
             <p id="status"></p>
             <button> New log </button>
-            <table id="meeting-log-table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>DATE</th>
-                        <th>MEETING NAME</th>
-                        <th>AGENDA</th>
-                        <th>NOTES</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- <tr>
-                        <td>#1</td>
-                        <td>11/18/2026</td>
-                        <td>General meeting for november!</td>
-                        <td>something</td>
-                        <td>something</td>
-                        <td><button>VIEW</button></td>
-                    </tr> -->
-                </tbody>
-            </table>
-            
-        </main>
-        <div id="meeting-log-shower" style="display:hidden;">
-            <div id="meet-cont">
-
+            <div class="meeting">
+                <details>
+                    <summary>
+                        <div class="meeting-header">
+                            <p class="meeting-num">#[]</p>
+                            <p class="header-title important-heading">[TITLE]</p>
+                            <p class="header-date">Month DD, YYYY</p>
+                        </div>
+                    </summary>
+                    <div class="meeting-information">
+                        <h3 class="important-heading info-title">[TITLE]</h3>
+                        <h4 class="important-heading">Topic</h4>
+                        <h4 class="important-heading">Agenda</h4>
+                        <h4 class="important-heading">Notes</h4>
+                    </div>
+                </details>
             </div>
-        </div>
+        </main>
+        
     </div>
     <script src="../nav.js"></script>
     <script type="module" src="app.js"></script>

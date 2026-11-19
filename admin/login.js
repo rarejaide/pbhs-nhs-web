@@ -2,13 +2,20 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyArWKYht-KGGoestDSneUnVtlPXvQMm5qU",
-    authDomain: "pbhs-nhs-fe45c.firebaseapp.com",
-    projectId: "pbhs-nhs-fe45c",
-    storageBucket: "pbhs-nhs-fe45c.firebasestorage.app",
-    messagingSenderId: "177163659450",
-    appId: "1:177163659450:web:a93ccf188953bef5c73a83",
-    measurementId: "G-S5K702G6TV"
+    // apiKey: "AIzaSyArWKYht-KGGoestDSneUnVtlPXvQMm5qU",
+    // authDomain: "pbhs-nhs-fe45c.firebaseapp.com",
+    // projectId: "pbhs-nhs-fe45c",
+    // storageBucket: "pbhs-nhs-fe45c.firebasestorage.app",
+    // messagingSenderId: "177163659450",
+    // appId: "1:177163659450:web:a93ccf188953bef5c73a83",
+    // measurementId: "G-S5K702G6TV"
+    apiKey: "AIzaSyAXOZId1Gh11zXtMF1kaspqX9RiN7oMTL8",
+    authDomain: "pbhs-nhs-d1836.firebaseapp.com",
+    projectId: "pbhs-nhs-d1836",
+    storageBucket: "pbhs-nhs-d1836.firebasestorage.app",
+    messagingSenderId: "785071480069",
+    appId: "1:785071480069:web:84732933670424e758ab6c",
+    measurementId: "G-1D1FNJWRDL"
 };
 
 const app = initializeApp(firebaseConfig);
