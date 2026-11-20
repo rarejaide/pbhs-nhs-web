@@ -38,3 +38,9 @@ form.addEventListener("submit", async (e) => {
         //errorEl.textContent = "Invalid email or password.";
     }
 });
+
+document.querySelector(".login").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const [email, password] = [...e.target.querySelectorAll(".cred")].map((i) => i.value);
+    handleLogin(email, password);
+});

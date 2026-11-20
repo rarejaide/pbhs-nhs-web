@@ -7,6 +7,11 @@ import {
     orderBy,
 } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
+import {
+    getAuth,
+    onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyAXOZId1Gh11zXtMF1kaspqX9RiN7oMTL8",
     authDomain: "pbhs-nhs-d1836.firebaseapp.com",
@@ -22,6 +27,9 @@ const db = getFirestore(app);
 
 const listEl = document.getElementById("meetings-list");
 const statusEl = document.getElementById("status");
+
+const auth = getAuth(app);
+
 
 // Escape text so notes/agenda can't inject HTML
 function esc(str = "") {
@@ -96,4 +104,11 @@ async function loadMeetings() {
     }
 }
 
-loadMeetings();
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loadMeetings();
+    } else {
+        statusEl.textContent = "Please log in to view meetings.";
+        window.location.href = "../index.html";
+    }
+});
