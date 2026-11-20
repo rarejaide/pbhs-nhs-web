@@ -1,6 +1,18 @@
+// Name of the query in your connector's queries.gql (the part after `query`)
+const QUERY_NAME = "ListMeetings";
+
+// Where to send people who aren't logged in (this file lives in /admin/meetings/)
+const LOGIN_URL = "../../index.html";
+// ---------------------------------------------------------------------------
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-import { getDataConnect, queryRef, executeQuery } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-data-connect.js";
+// 1. Add connectDataConnectEmulator to your imports
+import { 
+    getDataConnect, 
+    queryRef, 
+    executeQuery, 
+    connectDataConnectEmulator 
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-data-connect.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAXOZId1Gh11zXtMF1kaspqX9RiN7oMTL8",
@@ -12,7 +24,6 @@ const firebaseConfig = {
     measurementId: "G-1D1FNJWRDL"
 };
 
-// Must match dataconnect.yaml (serviceId + location) and connector.yaml (connectorId)
 const connectorConfig = {
     connector: "example",
     service: "pbhs-nhs-d1836-service",
@@ -22,6 +33,13 @@ const connectorConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const dataConnect = getDataConnect(app, connectorConfig);
+
+// 2. Connect to the SQL Connect emulator if running locally
+if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    // Force the IPv4 address instead of "localhost"
+    connectDataConnectEmulator(dataConnect, "127.0.0.1", 5500); 
+}
+
 
 const listEl = document.getElementById("meetings-list");
 const statusEl = document.getElementById("status");
@@ -44,9 +62,19 @@ function el(tag, className, text) {
     return node;
 }
 
+// The result is shaped like { meetings: [...] }, where "meetings" is whatever
+// field name your query uses. Use that if present, otherwise the first array found.
+function pickMeetings(data) {
+    if (!data) return [];
+    if (Array.isArray(data.meetings)) return data.meetings;
+    const firstArray = Object.values(data).find(Array.isArray);
+    return firstArray ?? [];
+}
+
 // Build one meeting using the same structure as the markup in index.html
 function addMeeting(meeting, index, all) {
     const number = all.length - index; // newest first, so the oldest meeting is #1
+    const topic = meeting.topic ?? meeting.title ?? meeting.name ?? "Untitled meeting";
 
     const wrapper = el("div", "meeting");
     const details = document.createElement("details");
@@ -56,14 +84,14 @@ function addMeeting(meeting, index, all) {
     const header = el("div", "meeting-header");
     header.append(
         el("p", "meeting-num", `#${number}`),
-        el("p", "header-title important-heading", meeting.topic),
+        el("p", "header-title important-heading", topic),
         el("p", "header-date", formatDate(meeting.date))
     );
     summary.appendChild(header);
 
     // --- Expanded information ---
     const info = el("div", "meeting-information");
-    info.appendChild(el("h3", "important-heading info-title", meeting.topic));
+    info.appendChild(el("h3", "important-heading info-title", topic));
 
     [
         ["Agenda", meeting.agenda],
@@ -80,20 +108,27 @@ function addMeeting(meeting, index, all) {
 
 async function loadMeetings() {
     statusEl.textContent = "Loading meetings...";
-    listEl.innerHTML = "";
+    listEl.innerHTML = ""; // clears the placeholder meeting in index.html
     try {
-        const result = await executeQuery(queryRef(dataConnect, "ListMeetings"));
-        const meetings = result.data.meetings ?? [];
+        const result = await executeQuery(queryRef(dataConnect, QUERY_NAME));
+        console.log("Data Connect result:", result.data);
+
+        // Sort newest first so numbering (#1 = oldest) is correct no matter what the query returns
+        const meetings = [...pickMeetings(result.data)].sort((a, b) =>
+            String(b.date ?? "").localeCompare(String(a.date ?? ""))
+        );
+
         meetings.forEach(addMeeting);
         statusEl.textContent = meetings.length ? "" : "No meetings logged yet.";
     } catch (err) {
-        console.error(err);
-        statusEl.textContent = "Couldn't load meetings. Try refreshing.";
+        console.error("Failed to load meetings:", err);
+        // Shows the real reason (permission denied, query not found, etc.) so it's debuggable
+        statusEl.textContent = `Couldn't load meetings: ${err.message || err.code || "unknown error"}`;
     }
 }
 
 // Only load once Firebase has restored the logged-in user
 onAuthStateChanged(auth, (user) => {
     if (user) loadMeetings();
-    else window.location.href = "../index.html"; // back to login
+    else window.location.href = LOGIN_URL;
 });
