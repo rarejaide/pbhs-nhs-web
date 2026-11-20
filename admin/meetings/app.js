@@ -1,7 +1,12 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, orderBy } from "firebase/firestore";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    orderBy,
+} from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
-// Same config as login.js (keep the real keys in your env vars)
 const firebaseConfig = {
     apiKey: "AIzaSyAXOZId1Gh11zXtMF1kaspqX9RiN7oMTL8",
     authDomain: "pbhs-nhs-d1836.firebaseapp.com",
@@ -11,7 +16,7 @@ const firebaseConfig = {
     appId: "1:785071480069:web:84732933670424e758ab6c",
     measurementId: "G-1D1FNJWRDL"
 };
-//
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
