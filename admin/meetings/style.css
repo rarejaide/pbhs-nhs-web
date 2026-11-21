@@ -56,3 +56,6 @@
 .meeting-information p{
     color:color-mix(in srgb, var(--light-slate) 65%, var(--bg-col));
 }
+details{
+    margin-bottom:30px;
+}
