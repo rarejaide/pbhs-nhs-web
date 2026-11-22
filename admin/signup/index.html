@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--HALLELUJAH THIS IS ALL THE FONTS WE WILL EVER USE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../master.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        ASK FOR:
+        -first and last name
+        -email
+        -password
+        -gpa
+        -grade level
+        -phone number
+        -time joined (Fall 2024, Spring 2025, Fall 2025, Spring 2026, Fall 2026)
+        -position? (President, Tutoring VP, New Members VP, Corresponding Secretary, Recording Secretary, Historin, Website Manager, Member, Novice Member)
+    -->
+    <div class="all-cont">
+        <p>
+            <a href="../index.html" id="back-button">BACK TO LOGIN</a>
+        </p>
+        <div class="create-contain">
+            <h1 class="important-heading" style="font-size: 3rem;margin-bottom: 5px;">create <span style="color:var(--gold)">account</span></h1>
+            <form action="" class="create">
+                <input type="text" class="cred" id="first-name" placeholder="FIRST NAME">
+                <input type="text" class="cred" id="last-name" placeholder="LAST NAME">
+                <input type="email" class="cred" id="email" placeholder="EMAIL">
+                <input type="password" class="cred" id="password" placeholder="PASSWORD">
+                <input type="text" class="cred" id="gpa" placeholder="GPA">
+                <!-- <input type="text" class="cred" id="grade-level" placeholder="GRADE LEVEL"> -->
+                <select class="cred" id="grade-level">
+                    <option value="" disabled selected>GRADE LEVEL</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <input type="text" class="cred" id="phone-number" placeholder="PHONE NUMBER">
+                <select class="cred" id="time-joined">
+                    <option value="" disabled selected>TIME JOINED</option>
+                    <option value="Fall 2024">Fall 2024</option>
+                    <option value="Spring 2025">Spring 2025</option>
+                    <option value="Fall 2025">Fall 2025</option>
+                    <option value="Spring 2026">Spring 2026</option>
+                    <option value="Fall 2026">Fall 2026</option>
+                </select>
+                <select class="cred" id="position">
+                    <option value="" disabled selected>POSITION</option>
+                    <option value="President">President</option>
+                    <option value="Tutoring VP">Tutoring VP</option>
+                    <option value="New Members VP">New Members VP</option>
+                    <option value="Corresponding Secretary">Corresponding Secretary</option>
+                    <option value="Recording Secretary">Recording Secretary</option>
+                    <option value="Historian">Historian</option>
+                    <option value="Website Manager">Website Manager</option>
+                    <option value="Member">Member</option>
+                    <option value="Novice Member">Novice Member</option>
+                </select>
+                <button type="submit" class="submit">CREATE ACCOUNT</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="login.js"></script>
+</body>
+</html>

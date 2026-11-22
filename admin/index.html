@@ -15,15 +15,27 @@
 </head>
 <body>
     <div class="all-cont">
+        <p>
+            <a href="../index.html" id="back-button">BACK TO HOME</a>
+        </p>
         <div class="login-contain">
-            <h1 class="important-heading" style="font-size: 3em;">member login</h1>
-            <p>PERSONNEL AUTHORIZATION REQUIRED</p>
+            <div class="login-headings">
+                <h1 class="important-heading" style="font-size: 3rem;margin-bottom: 5px;">member <span style="color:var(--gold)">login</span></h1>
+                <p class="slate">PERSONNEL AUTHORIZATION REQUIRED</p>
+            </div>
             <form action="" class="login">
                 <input type="email" class="cred" placeholder="MEMBER EMAIL">
                 <input type="password" class="cred" placeholder="PASSWORD">
                 <button type="submit" class="submit">LOG IN</button>
             </form>
+            <div class="login-footer">
+                <p class="slate">New here?</p>
+                <p>
+                    <a href="signup/index.html">Create Member Account!</a>
+                </p>
+            </div>
         </div>
+        <p class="slate">AUTHORIZED MEMBERS ONLY</p>
     </div>
     <script type="module" src="login.js"></script>
 </body>
