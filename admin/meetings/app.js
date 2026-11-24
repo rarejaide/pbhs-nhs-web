@@ -5,13 +5,13 @@ import {
     getDocs,
     query,
     orderBy,
+    addDoc
 } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
 import {
     getAuth,
     onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
-
 const firebaseConfig = {
     apiKey: "AIzaSyAXOZId1Gh11zXtMF1kaspqX9RiN7oMTL8",
     authDomain: "pbhs-nhs-d1836.firebaseapp.com",
@@ -111,4 +111,59 @@ onAuthStateChanged(auth, (user) => {
         statusEl.textContent = "Please log in to view meetings.";
         window.location.href = "../index.html";
     }
+});
+
+//Ok so we're gonna implement the new log button!!
+//When someone presses it, we need the div containing the new log form to appear
+const newLogButton = document.getElementById("new-log");
+const newLogFormCont = document.getElementById("new-log-form-cont");
+const newLogForm = document.getElementById("new-log-form");
+
+const cancelLogButton = document.getElementById("cancel-log");
+const submitLogButton = document.getElementById("submit-log");
+
+newLogButton.addEventListener("click", () => {
+    newLogFormCont.style.display = "flex";
+    setTimeout(() => {
+        newLogFormCont.style.opacity = "1";
+        newLogForm.style.opacity = "1";
+        newLogForm.style.transform = "translateY(0px)";
+    },200);
+});
+
+cancelLogButton.onclick = () => {
+    newLogFormCont.style.opacity = "0";
+    newLogForm.style.opacity = "0";
+    newLogForm.style.transform = "translateY(-50px)";
+    setTimeout(() => {
+        newLogFormCont.style.display = "none";
+    }, 200);
+};
+
+submitLogButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    newLogFormCont.style.opacity = "0";
+    newLogForm.style.opacity = "0";
+    newLogForm.style.transform = "translateY(-50px)";
+    setTimeout(() => {
+        newLogFormCont.style.display = "none";
+    }, 200);
+    
+    const title = document.getElementById("log-title").value;
+    const agenda = document.getElementById("log-agenda").value;
+    const notes = document.getElementById("log-notes").value;
+
+    //Ok now we need to submit this data to the database!! We'll use the addDoc function from firebase/firestore
+    addDoc(collection(db, "Meetings"), {
+        title,
+        agenda,
+        notes,
+        date: new Date().toDateString(),
+    }).then(() => {
+        console.log("Meeting logged successfully!");
+        loadMeetings(); // Reload meetings to show the new one
+    }).catch((err) => {
+        console.error("Error logging meeting:", err);
+    });
 });

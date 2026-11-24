@@ -19,8 +19,8 @@
             <h1 class="important-heading">Meeting logs</h1>
             <p>stay in the know!!</p>
             <p>you may only view ___ meetings</p>
+            <button id="new-log"> New log </button>
             <p id="status"></p>
-            <button> New log </button>
             <div id="meetings-list">
                 <div class="meeting">
                     <!-- <details>
@@ -40,7 +40,26 @@
                 </div>
             </div>
         </main>
-        
+        <!--we're making something to create a new log!!-->
+        <div id="new-log-form-cont" style="display: none;">
+            <div id="new-log-form">
+                <h2 class="important-heading">New log</h2>
+                <form id="log-form">
+                    <!--Ooh we need a toggle for if it's officer meeting or not-->
+                    <label for="log-officer" style="color:var(--gold)">Officer Meeting?</label>
+                    <input type="checkbox" id="log-officer" name="log-officer" >
+                    <br>
+                    <label for="log-title">Title:</label>
+                    <input type="text" id="log-title" name="log-title" required>
+                    <label for="log-agenda">Agenda:</label>
+                    <textarea id="log-agenda" name="log-agenda" required></textarea>
+                    <label for="log-notes">Notes:</label>
+                    <textarea id="log-notes" name="log-notes" required></textarea>
+                    <button type="submit" id="submit-log">Submit</button>
+                    <button id="cancel-log" type="button">Cancel</button>
+                </form>
+            </div>
+        </div>
     </div>
     <script src="../nav.js"></script>
     <script type="module" src="app.js"></script>
