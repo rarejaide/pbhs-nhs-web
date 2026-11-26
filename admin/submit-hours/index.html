@@ -15,33 +15,78 @@
 </head>
 <body>
     <div class="all-cont">
-        <!-- <aside class="nav">
-            <h1> <span class="important-heading" style="color:var(--gold);">PBHS NHS </span><br> <span style="color:var(--slate);font-family: 'Work Sans'; font-weight:500;">ADMIN PORTAL</span> </h1>
-            <div class="profile"></div>
-            <div class="nav-button">
-                <p>Back to Home</p>
-            </div>
-            <div class="nav-button">
-                <p>Dashboard</p>
-            </div>
-            <div class="nav-button">
-                <p>Submit Hours</p>
-            </div>
-            <div class="nav-button">
-                <p>Approve Hours</p>
-            </div>
-            <div class="nav-button">
-                <p>Meeting Logs</p>
-            </div>
-            <div class="nav-button">
-                <p>Version History</p>
-            </div>
-        </aside> -->
+        <!--ok so we need like a toggle button to distinguish between types of hours (service & tutoring)-->
         <main class="main-cont">
             <h1 class="important-heading">Submit Hours</h1>
             <p>don't get on probation, now!!</p>
+            <div class="toggle">
+                <!--buttons for service and tutoring hours-->
+                <button class="toggle-btn active" id="tutoring-btn">Tutoring Hours</button>
+                <button class="toggle-btn" id="service-btn">Service Hours</button>
+                
+            </div>
+            <div id="tutoring-form-cont" style="display:block;">
+                <form id="tutoring-form">
+                    <div class="form-section">
+                        <p>Tutor Name:</p>
+                        <input type="text" id="tutor-name" placeholder="Tutor Name" required>
+                        <p>Student Name:</p>
+                        <input type="text" id="student-name" placeholder="Student Name" required>
+                        <p>Check the box below if the student is NHS-assigned:</p>
+                        <input type="checkbox" id="nhs-assigned">
+                    </div>
+                    
+                    
+                    <!-- <label for="nhs-assigned">Is the student NHS-assigned?</label> -->
+                    <div class="form-section">
+                        <p>Date of Tutoring:</p>
+                        <input type="date" id="tutoring-date" required>
+                        <p>When did the tutoring happen?</p>
+                        <select id="tutoring-time">
+                            <option value="before-school">Before School</option>
+                            <option value="after-school">After School</option>
+                            <option value="during-school">During School</option>
+                            <option value="online">Online</option>
+                        </select>
+                        <p>What subject was tutored?</p>
+                        <input type="text" id="tutoring-subject" placeholder="Subject(s)" required>
+                        <p>How long was this session?</p>
+                        <input type="number" id="tutoring-duration" placeholder="Duration (hours)" min="0.5" step="0.5" required>
+                    </div>
+                    <div class="form-section">
+                        <p>Upload a photo of you and your tutee (if in person) or Upload call log (if over phone/online)</p>
+                        <input type="file" id="proof-photo" accept="image/*" capture="environment" required>
+                        <p>Upload photo of assignment worked on</p>
+                        <input type="file" id="assignment-photo" accept="image/*" capture="environment" required>
+                    </div>
+                    <div class="form-section">
+                        <p>
+                            By typing my full name below, I verify that the information provided on this form is accurate and complete. I confirm that the tutoring session(s) recorded above has occurred as reported and that the hours listed accurately reflect the time spent participating in tutoring.
+                            <br><br><strong><u>Tutor:</u></strong> I confirm that I provided the tutoring described above legitimately and with fidelity for the stated amount of time. 
+                            <br><br>Additionally, I acknowledge that typing my name below serves as an electronic signature and represents my confirmation of the tutoring above. I understand that knowingly submitting inaccurate tutors hours or falsely verify a session may result in the hours being rejected and/or referral to the NHS Board for consideration with NHS policies. 
+                        </p>
+                        <input type="text" id="tutor-signature" placeholder="Your Name" required>
+                        <p>
+                            By typing my full name below, I verify that the information provided on this form is accurate and complete. I confirm that the tutoring session(s) recorded above has occurred as reported and that the hours listed accurately reflect the time spent participating in tutoring.
+                            <br><br><strong><u>Tutee:</u></strong> I confirm that I participated in the tutoring described above for the stated amount of time and the session was conducted with fidelity.
+                            <br><br>Additionally, I acknowledge that typing my name below serves as an electronic signature and represents my confirmation of the tutoring above. I understand that knowingly submitting inaccurate tutors hours or falsely verify a session may result in the hours being rejected and/or referral to the NHS Board for consideration with NHS policies. 
+                        </p>
+                        <input type="text" id="tutee-signature" placeholder="Tutee Name" required>
+                    </div>
+                    <button type="submit" id="submit-tutoring">SUBMIT HOURS</button>
+                </form>
+            </div>
+            <div id="service-form-cont" style="display:none;">
+                <form>
+                    <p>This form is coming soon! Your lovely website manager is working with the officers on this.</p>
+                </form>
+            </div>
+            <div id="submission-receipt" style="display:none">
+                <p>Submitted! One of the officers will take a look at this request soon. Reload to submit a new request!</p>
+            </div>
         </main>
     </div>
+    <script type="module" src="app.js"></script>
     <script src="../nav.js"></script>
 </body>
 </html>

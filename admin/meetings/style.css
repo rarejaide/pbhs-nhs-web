@@ -12,8 +12,17 @@
     justify-content: center;
 }
 
-.meeting-header:hover{
+
+.officer-only{
+    background-color: color-mix(in srgb, var(--gold) 10%, transparent);
+    border: solid 1px color-mix(in srgb, var(--gold) 20%, transparent);
+}
+
+.meeting-header:hover:not(.officer-only){
     background-color: color-mix(in srgb, var(--light-slate) 10%, transparent);
+}
+.meeting-header.officer-only:hover{
+    background-color: color-mix(in srgb, var(--gold) 15%, transparent);
 }
 
 .meeting-num{
@@ -29,10 +38,18 @@
     margin: 0px;
 }
 
+.officer-only .meeting-num{
+    background-color: color-mix(in srgb, var(--gold) 25%, transparent);
+}
+
 .header-title{
     margin:2px;
     font-size: 20px;
     color:var(--light-slate);
+}
+
+.officer-only .header-title, .officer-only .header-date, .officer-only .meeting-num{
+    color:var(--gold);
 }
 
 .header-date{
@@ -44,6 +61,7 @@
     margin-top:0px;
     margin-bottom:0px;
 }
+
 
 .meeting-information{
     margin-top:15px;
@@ -89,6 +107,7 @@ input, textarea{
 
 textarea{
     height:100px;
+    resize: none;
 }
 
 #new-log-form{
@@ -142,6 +161,8 @@ textarea{
 input[type="checkbox"]:checked {
   background-color: color-mix(in srgb, var(--gold) 50%, transparent);
 }
+
+
 
 /* Create the checkmark using ::before */
 /* input[type="checkbox"]:checked::before {

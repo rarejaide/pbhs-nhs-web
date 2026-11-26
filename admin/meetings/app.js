@@ -58,6 +58,43 @@ function formatText(value) {
 function renderMeeting(m, index, total) {
     // Newest meeting gets the highest number
     const num = m.number ?? total - index;
+    //ok so if the person is not an officer and the meeting is officer only, we need to hide it from them (i think we can just access their  position by email)
+    if (m["officer-only"]) {
+        const user = auth.currentUser;
+        if (user) {
+            const email = user.email;
+            //ok so we need to check if the email is in the list of officers, which is stored in the database. We'll need to fetch that list first
+            //ok so we can just hardcode the list of officer emails for now, since it's not going to change that often
+            const officerEmails = [
+                "admin@pbhsnhs.com",
+            ]
+            if (!officerEmails.includes(email)) {
+                return "";
+            }else{
+                //
+                return `
+                    <div class="meeting">
+                        <details>
+                            <summary>
+                                <div class="meeting-header officer-only">
+                                    <p class="meeting-num">#${esc(String(num))}</p>
+                                    <p class="header-title important-heading">${esc(m.title || "Untitled meeting")}</p>
+                                    <p class="header-date">${formatDate(m.date)}</p>
+                                </div>
+                            </summary>
+                            <div class="meeting-information">
+                                <h3 class="important-heading info-title">${esc(m.title || "Untitled meeting")}</h3>
+                                <h4 class="important-heading">Agenda</h4>
+                                <p>${formatText(m.agenda)}</p>
+                                <h4 class="important-heading">Notes</h4>
+                                <p>${formatText(m.notes)}</p>
+                            </div>
+                        </details>
+                    </div>
+                `;
+            }
+        }
+    }
     return `
         <div class="meeting">
             <details>
@@ -153,13 +190,14 @@ submitLogButton.addEventListener("click", (event) => {
     const title = document.getElementById("log-title").value;
     const agenda = document.getElementById("log-agenda").value;
     const notes = document.getElementById("log-notes").value;
-
+    const officerOnly = document.getElementById("log-officer").checked;
     //Ok now we need to submit this data to the database!! We'll use the addDoc function from firebase/firestore
     addDoc(collection(db, "Meetings"), {
         title,
         agenda,
         notes,
         date: new Date().toDateString(),
+        "officer-only": officerOnly
     }).then(() => {
         console.log("Meeting logged successfully!");
         loadMeetings(); // Reload meetings to show the new one

@@ -1,0 +1,27 @@
+#access-message{
+    border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+    background-color: color-mix(in srgb, var(--gold) 10%, transparent);
+    padding: 5px 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.normal-section{
+    background-color: var(--slate2);
+    padding: 5px 15px;
+    border-radius: 15px;
+    /* min-height: 30vh; */
+}
+
+#your-tasks{
+    background-color: var(--gold);
+    color: var(--bg-col);
+    grid-row: span 2;
+}
+
+/*we're gonna make da-dash a grid*/
+#da-dash{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+}
