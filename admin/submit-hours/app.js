@@ -31,11 +31,11 @@ onAuthStateChanged(auth, (user) => { currentUser = user; });
 // ---------- Toggle between tutoring / service ----------
 const hours = {
     tutoring: {
-        form: document.getElementById("tutoring-form"),
+        form: document.getElementById("tutoring-form-cont"),
         button: document.getElementById("tutoring-btn"),
     },
     service: {
-        form: document.getElementById("service-form"),
+        form: document.getElementById("service-form-cont"),
         button: document.getElementById("service-btn"),
     }
 };

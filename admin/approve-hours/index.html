@@ -15,33 +15,43 @@
 </head>
 <body>
     <div class="all-cont">
-        <!-- <aside class="nav">
-            <h1> <span class="important-heading" style="color:var(--gold);">PBHS NHS </span><br> <span style="color:var(--slate);font-family: 'Work Sans'; font-weight:500;">ADMIN PORTAL</span> </h1>
-            <div class="profile"></div>
-            <div class="nav-button">
-                <p>Back to Home</p>
-            </div>
-            <div class="nav-button">
-                <p>Dashboard</p>
-            </div>
-            <div class="nav-button">
-                <p>Submit Hours</p>
-            </div>
-            <div class="nav-button">
-                <p>Approve Hours</p>
-            </div>
-            <div class="nav-button">
-                <p>Meeting Logs</p>
-            </div>
-            <div class="nav-button">
-                <p>Version History</p>
-            </div>
-        </aside> -->
         <main class="main-cont">
             <h1 class="important-heading">approve hours</h1>
-            <p>ooh you must be the president, a vice president, or the admin </p>
+            <p>ooh you must be the president, a vice president, or the admin. Rock on diva! 💅💅</p>
+
+
+            <div class="toggle">
+                <!--buttons for service and tutoring hours-->
+                <button class="toggle-btn active" id="tutoring-btn">Tutoring Requests</button>
+                <button class="toggle-btn" id="service-btn">Service Requests</button>
+                
+            </div>
+
+            <div id="tutoring-requests">
+                <!--using the good ol' JS to boot up the tutoring requests lol-->
+                <p>no tutoring requests!</p>
+                <!--Sample tutoring request-->
+                <div class="tutoring-request">
+                    <h3 class="important-heading"><span class="tutor">tutor</span> tutored <span class="tutee">tutee</span></h3>
+                    <p>On <span class="tutor-date">date</span>, <span class="tutor-time-of-day">time of day</span>, in <span class="tutor-subject">this subject</span>, for <span class="tutor-duration">duration</span> hours</p>
+                    <p>Proof of Location:</p>
+                    <img src="" alt="">
+                    <p>Proof of assignment</p>
+                    <img src="" alt="">
+                    <div class="approval-buttons">
+                        <button class="approved">APPROVE</button>
+                        <button class="rejected">REJECT</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="service-requests" style="display:none">
+                <!--And the service requests! Oh yeah!-->
+                <p>no service requests!</p>
+            </div>
         </main>
     </div>
+    <script type="module" src="app.js"></script>
     <script src="../nav.js"></script>
 </body>
 </html>
